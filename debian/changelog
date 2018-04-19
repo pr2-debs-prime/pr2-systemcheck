@@ -1,8 +1,11 @@
-pr2-systemcheck (0.5.1-precise) stable; urgency=low
+pr2-systemcheck (0.5.1-xenial) stable; urgency=low
 
+  [ Jeremy Leibs ]
   * Incrementing to SVN: r144
 
- -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 12 Oct 2010 16:10:17 -0700
+  [ David Feil-Seifer ]
+
+ -- David Feil-Seifer <dave@cse.unr.edu>  Wed, 18 Apr 2018 17:16:32 -0700
 
 pr2-systemcheck (0.1.5-precise) stable; urgency=low
 
