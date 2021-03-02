@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: pr2-systemcheck
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, python
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3
 Description: Runs a series of tests across multiple computers and displays results.
 Provides: ${diverted-files}
 Conflicts: ${diverted-files}

@@ -7,7 +7,7 @@ import subprocess
 
 def printindent(str, indent):
     for l in str.splitlines():
-        print indent + l
+        print (indent + l)
 
 def process_ret(ret):
     passed = 0
@@ -17,13 +17,13 @@ def process_ret(ret):
 
     if res == 0:
         passed = passed + 1
-        print 'OK'
+        print ('OK')
     elif res == 254:
         skipped = skipped + 1
-        print 'SKIPPED'
+        print ('SKIPPED')
     else:
         failed = failed + 1
-        print 'FAIL (Return code: %d)'%res
+        print ('FAIL (Return code: %d)'%res)
         
     if options.verbose:
         printindent(o, '    ');
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     total = 0
 
     # Run local scripts not through ssh.  Just in case our ssh server isn't running.
-    print "Running local scripts"
+    print ("Running local scripts")
     total += len(host_files['local']) + len(real_hosts)
     for (s,f) in host_files['local']:
         run += 1
@@ -88,17 +88,17 @@ if __name__ == '__main__':
         res = script.wait()
         if res == 0:
             passed += 1
-            print 'OK'
+            print ('OK')
         elif res == 254:
             skipped += 1
-            print 'SKIPPED'
+            print ('SKIPPED')
         else:
             failed += 1
-            print 'FAIL (Return code: %d)'%res
+            print ('FAIL (Return code: %d)'%res)
             
         if options.verbose:
             printindent(o, '    ');
-            print ''
+            print ('')
         else:
             printindent(e, '    ');
 
@@ -106,7 +106,7 @@ if __name__ == '__main__':
     for host in real_hosts:
         total += len(host_files['all'] + host_files[host])
 
-        print "Running scripts for %s"%host
+        print ("Running scripts for %s"%host)
 
         print (" * Testing ssh connection to %s... "%host).ljust(justwidth),
         run += 1
@@ -116,13 +116,13 @@ if __name__ == '__main__':
         res = test_ssh.wait()
         if res != 0 or not 'SSH WORKS' in o:
             failed += 1
-            print 'FAIL'
+            print ('FAIL')
             printindent(o, '    ');
             for (s,f) in host_files['all'] + host_files[host]:
-                print ' * Not running \'%s\''%(s)
+                print (' * Not running \'%s\''%(s))
         else:
             passed += 1
-            print 'OK'
+            print ('OK')
 
             for (s,f) in host_files['all'] + host_files[host]:
                 run += 1
@@ -134,13 +134,13 @@ if __name__ == '__main__':
                 res = script.wait()
                 if res == 0:
                     passed += 1
-                    print 'OK'
+                    print ('OK')
                 elif res == 254:
                     skipped += 1
-                    print 'SKIPPED'
+                    print ('SKIPPED')
                 else:
                     failed += 1
-                    print 'FAIL (Return code: %d)'%res
+                    print ('FAIL (Return code: %d)'%res_)
 
                 if options.verbose:
                     out = o + '\n'
@@ -149,15 +149,15 @@ if __name__ == '__main__':
                     
                 printindent(out, '    ');
 
-    print ""
+    print ("")
     if (passed > 0):
-        print "%d/%d passed"%(passed,total)
+        print ("%d/%d passed"%(passed,total))
     if (failed > 0):
-        print "%d/%d failed"%(failed,total)
+        print ("%d/%d failed"%(failed,total))
     if (skipped > 0):
-        print "%d/%d skipped"%(skipped,total)
+        print ("%d/%d skipped"%(skipped,total))
     if (total - run > 0):
-        print "%d/%d not run"%(total - run,total)
+        print ("%d/%d not run"%(total - run,total))
 
 
     if failed != 0:
