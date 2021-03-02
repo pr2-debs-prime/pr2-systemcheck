@@ -1,3 +1,10 @@
+pr2-systemcheck (0.5.2-focal) stable; urgency=low
+
+  [ David Feil-Seifer ]
+  * updates for focal/python3
+
+ -- David Feil-Seifer <dave@cse.unr.edu>  Wed, 18 Apr 2018 17:16:32 -0700
+
 pr2-systemcheck (0.5.1-xenial) stable; urgency=low
 
   [ Jeremy Leibs ]
